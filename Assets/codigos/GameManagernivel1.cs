@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,10 +16,38 @@ public class GameManagernivel1 : MonoBehaviour
     public GameObject puerta;
 
 
+    public List<Palanca> newPalancas;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        ActivarSoloUnaPalanca(0);
+     /*   ActivarSoloUnaPalanca(0);*/
+
+        foreach (var item in newPalancas)
+        {
+            item.gameObject.SetActive(false);
+
+           
+            
+        }
+        
+        newPalancas[0].gameObject.SetActive(true);
+
+    }
+    public void UpdatePalancas()
+    {
+        for (int i = 0; i < newPalancas.Count; i++)
+        {
+            if (newPalancas[i].isEnabled && (i+1)<newPalancas.Count )
+            {
+                
+                newPalancas[i + 1].gameObject.SetActive(true);
+                newPalancas[i].gameObject.SetActive(false);
+                newPalancas[i].isEnabled = false;
+            }
+            
+        }
     }
 
     public void CambioDeNivelDerrota()

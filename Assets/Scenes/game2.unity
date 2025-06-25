@@ -950,6 +950,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cda6523c75ad90438700958c2d73901, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nametag: player
   libro: {fileID: 1125297035}
 --- !u!61 &108551620
 BoxCollider2D:

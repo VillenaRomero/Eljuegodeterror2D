@@ -198,13 +198,13 @@ public class SistemaCombate : MonoBehaviour
     {
         if (vidaJugador <= 0)
         {
-            SceneManager.LoadScene("derrota5");
+            SceneManager.LoadScene("derrota");
         }
         else if (vidaEnemigo <= 0)
         {
             SceneManager.LoadScene("Fin");
         }
-        else if (rondasCompletas >= 12) // todas las rondas jugadas
+        else if (rondasCompletas >= 12)
         {
             if (vidaJugador > vidaEnemigo)
             {
@@ -212,12 +212,11 @@ public class SistemaCombate : MonoBehaviour
             }
             else if (vidaJugador < vidaEnemigo)
             {
-                SceneManager.LoadScene("derrota5");
+                SceneManager.LoadScene("derrota");
             }
             else
             {
-                // Opcional: puedes hacer empate
-                SceneManager.LoadScene("derrota5"); // o usar: "Empate"
+                SceneManager.LoadScene("derrota");
             }
         }
     }

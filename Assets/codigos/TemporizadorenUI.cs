@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class TemporizadorenUI : MonoBehaviour
 {
-    public float startTime = 10f;
+    public float startTime;
     private float currentTime;
     public Text uiText;
     void Start()

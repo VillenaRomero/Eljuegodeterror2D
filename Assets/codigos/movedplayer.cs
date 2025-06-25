@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 public class movedplayer : MonoBehaviour
 {
     public int life = 10;
@@ -15,8 +16,8 @@ public class movedplayer : MonoBehaviour
     public Animator anin;
     private GameManagernivel1 gameManager;
     private Nivelesdeboton nivelesdeboton;
-
-    //public static bool isSafeOpened = false;
+    public float currentTime;
+    public Text Text;
 
     private void Start()
     {
@@ -95,9 +96,14 @@ public class movedplayer : MonoBehaviour
                 transform.position += Vector3.right * speed * Time.deltaTime;
             }
         }
+        currentTime += Time.deltaTime;
+        TimerUI();
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
+
+
+
         if (collision.gameObject.tag == nametag)
         {
             gameManager.CambioDeNivelDerrota();
@@ -106,8 +112,11 @@ public class movedplayer : MonoBehaviour
             gameManager.CambioDeNivelVctoria();
         }
         if (collision.gameObject.tag == nametag3) {
-            gameManager.CambiodePalanca();
+           gameManager.CambiodePalanca();
         }
+
+
+        
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -126,6 +135,12 @@ public class movedplayer : MonoBehaviour
         if (other.gameObject.tag == nametag) {
             nivelesdeboton.NiveldeGanar();
         }
+
+        if (other.gameObject.GetComponent<Iinteractualbe>() != null)
+        {
+            print("DEBUGUEABLE");
+            other.gameObject.GetComponent<Palanca>().OnSelect();
+        }
     }
 
    private void OnTriggerExit2D(Collider2D other)
@@ -135,4 +150,10 @@ public class movedplayer : MonoBehaviour
            currentSwitch = null;
        }
    }
+    void TimerUI()
+    {
+        int seconds = Mathf.CeilToInt(currentTime);
+        Text.text = "Tiempo: " + seconds.ToString();
+
+    }
 }

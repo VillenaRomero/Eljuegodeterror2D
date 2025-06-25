@@ -11,7 +11,7 @@ public class MesaGameManagerMoneda : MonoBehaviour
     {
         if (puerta != null)
         {
-            puerta.SetActive(false); // Asegura que inicie desactivada
+            puerta.SetActive(false);
         }
 
         if (contadorText != null)
