@@ -1370,9 +1370,10 @@ MonoBehaviour:
   currentTimetuCreate: 0
   nivel: game4
   nivel2: 
-  palancaActual: 0
-  palancas: []
   puerta: {fileID: 0}
+  newPalancas: []
+  tiempoFinal: {fileID: 0}
+  palancaActual: 0
 --- !u!4 &494601678
 Transform:
   m_ObjectHideFlags: 0
@@ -1625,6 +1626,7 @@ MonoBehaviour:
   nametag3: Palanca
   nametag4: 
   anin: {fileID: 660938284}
+  currentTime: 0
 --- !u!50 &660938286
 Rigidbody2D:
   serializedVersion: 5

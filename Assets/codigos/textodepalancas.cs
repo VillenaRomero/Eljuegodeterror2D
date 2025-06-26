@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,7 +11,7 @@ public class textodepalancas : MonoBehaviour
     void Start()
     {
         if (gameManager == null)
-            gameManager = FindObjectOfType<GameManagernivel1>();
+            gameManager = FindFirstObjectByType<GameManagernivel1>();
     }
 
     void Update()

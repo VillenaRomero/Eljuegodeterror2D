@@ -1,13 +1,11 @@
-using UnityEditor.Rendering.LookDev;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 
 public class SwitchTrigger : MonoBehaviour
 {
     public GameObject luzandbloodAPrefab;
     public GameObject luzandbloodBPrefab;
 
-    public Transform puntoInstancia; // Lugar donde se crean las luces
+    public Transform puntoInstancia;
 
     private GameObject luzActual;
     private bool activo = false;

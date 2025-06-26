@@ -982,7 +982,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -1131,6 +1131,7 @@ MonoBehaviour:
   nametag3: Palanca
   nametag4: "contrase\xF1a"
   anin: {fileID: 123974259}
+  currentTime: 0
 --- !u!50 &123974261
 Rigidbody2D:
   serializedVersion: 5
@@ -4425,9 +4426,10 @@ MonoBehaviour:
   currentTimetuCreate: 0
   nivel: habitacion3
   nivel2: derrota
-  palancaActual: 0
-  palancas: []
   puerta: {fileID: 0}
+  newPalancas: []
+  tiempoFinal: {fileID: 0}
+  palancaActual: 0
 --- !u!4 &1107990744
 Transform:
   m_ObjectHideFlags: 0

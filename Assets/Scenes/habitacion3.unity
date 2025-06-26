@@ -2796,10 +2796,8 @@ MonoBehaviour:
   nametag2: puerta
   nametag3: Palanca
   nametag4: 
-  nametag5: 
-  codePanel: {fileID: 396930473}
-  openedSafe: {fileID: 201546932}
   anin: {fileID: 1830291500}
+  currentTime: 0
 --- !u!50 &1830291502
 Rigidbody2D:
   serializedVersion: 5
@@ -3770,9 +3768,10 @@ MonoBehaviour:
   currentTimetuCreate: 0
   nivel: game3
   nivel2: 
-  palancaActual: 0
-  palancas: []
   puerta: {fileID: 0}
+  newPalancas: []
+  tiempoFinal: {fileID: 0}
+  palancaActual: 0
 --- !u!4 &1964438124
 Transform:
   m_ObjectHideFlags: 0

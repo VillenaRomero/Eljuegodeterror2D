@@ -10,7 +10,7 @@ public class botonactivate : MonoBehaviour
         {
             yaActivado = true;
 
-            Nivelesdeboton manager = FindObjectOfType<Nivelesdeboton>();
+            Nivelesdeboton manager = FindFirstObjectByType<Nivelesdeboton>();
             if (manager != null)
             {
                 manager.BotonPresionado();

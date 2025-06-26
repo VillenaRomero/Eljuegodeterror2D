@@ -1,23 +1,21 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEditor.Rendering.LookDev;
-
 public class Nivelesdeboton : MonoBehaviour
 {
-    public GameObject[] botones;         // Los 4 botones
-    public GameObject puerta;            // La puerta a activar
+    public GameObject[] botones;         
+    public GameObject puerta;            
     public float tiempoPorBoton = 10f;
     public float timeTiCreate = 100f;
     public float currentTimetuCreate;
 
-    public string nivel;     // Nivel de derrota
-    public string nivel2;    // Nivel de victoria
+    public string nivel;     
+    public string nivel2;    
 
-    public Text textoVida;           // Texto UI para mostrar la vida
-    public Text textoTemporizador;   // Texto UI para mostrar el tiempo restante
+    public Text textoVida;           
+    public Text textoTemporizador;   
 
-    private movedplayer jugador;     // Referencia al jugador
+    private movedplayer jugador;     
 
     private float cronometro = 0f;
     private int botonActual = 0;
@@ -27,7 +25,7 @@ public class Nivelesdeboton : MonoBehaviour
 
     void Start()
     {
-        jugador = FindObjectOfType<movedplayer>();
+        jugador = FindFirstObjectByType<movedplayer>();
 
         for (int i = 0; i < botones.Length; i++)
         {
@@ -67,11 +65,10 @@ public class Nivelesdeboton : MonoBehaviour
             textoVida.text = "Vida: " + jugador.life;
         }
 
-        // Temporizador general para cambiar de nivel
         currentTimetuCreate += Time.deltaTime;
         if (currentTimetuCreate >= timeTiCreate)
         {
-            SceneManager.LoadScene(nivel); // Nivel derrota por tiempo
+            SceneManager.LoadScene(nivel);
         }
 
         if (Siguientenivelperder)

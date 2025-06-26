@@ -9,7 +9,7 @@ public class tiempofinalniveles : MonoBehaviour
     void Awake()
     {
         if (player == null)
-            player = FindObjectOfType<movedplayer>();
+            player= FindFirstObjectByType<movedplayer>();
     }
 
     void Start()

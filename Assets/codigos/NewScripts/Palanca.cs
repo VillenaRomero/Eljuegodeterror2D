@@ -7,7 +7,7 @@ public class Palanca : InteractuableOvbject , Iinteractualbe
 
     private void Start()
     {
-        gm = FindObjectOfType<GameManagernivel1>();
+        gm = FindFirstObjectByType<GameManagernivel1>();
     }
 
     public override void OnSelect()
@@ -21,16 +21,15 @@ public class Palanca : InteractuableOvbject , Iinteractualbe
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // ✅ Solo si es la 4ta palanca y colisiona con el jugador
         if (isEnabled && gm != null && gm.newPalancas.Count > 3 &&
             gm.newPalancas[3] == this && collision.gameObject.CompareTag("player"))
         {
             if (gm.puerta != null)
             {
-                gm.puerta.SetActive(true); // ✅ Ahora sí abrimos la puerta
+                gm.puerta.SetActive(true);
             }
 
-            // Opcional: ocultar palanca 4 tras colisión
+
             gameObject.SetActive(false);
             isEnabled = false;
         }

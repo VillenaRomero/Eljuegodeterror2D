@@ -21,10 +21,9 @@ public class movedplayer : MonoBehaviour
 
     private void Start()
     {
-        gameManager = FindObjectOfType<GameManagernivel1>();
-        nivelesdeboton = FindObjectOfType<Nivelesdeboton>();
+        gameManager = FindFirstObjectByType<GameManagernivel1>();
+        nivelesdeboton = FindFirstObjectByType<Nivelesdeboton>();
 
-        // Solo cargar si no se ha hecho antes
         if (PlayerPrefs.HasKey("CurrentTime"))
         {
             currentTime = PlayerPrefs.GetFloat("CurrentTime", 0f);
