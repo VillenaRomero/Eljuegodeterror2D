@@ -39,6 +39,9 @@ EditorBuildSettings:
     path: Assets/Scenes/game3.unity
     guid: a690f57e0cf9465448b08d5b3046452d
   - enabled: 1
+    path: Assets/Scenes/game4.unity
+    guid: 2e2625fd22b84d6468394755c2e0c3ca
+  - enabled: 1
     path: Assets/Scenes/habitacion1.unity
     guid: b64dae356fc82ca4db6c1eb8df2d7ef0
   - enabled: 1
@@ -50,7 +53,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/habitacion4.unity
     guid: 1e48b324c427c484e81a9ccb05829997
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/habitacion5.unity
     guid: 601565cc7e22ec84aa30e2f930b63381
   - enabled: 1

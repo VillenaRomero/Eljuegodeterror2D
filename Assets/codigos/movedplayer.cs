@@ -14,7 +14,7 @@ public class movedplayer : MonoBehaviour
     private SwitchTrigger currentSwitch;
     public Animator anin;
     private GameManagernivel1 gameManager;
-    private Nivelesdeboton nivelesdeboton;
+    private Nivelesdeboton nivelesdeboton; 
 
     public float currentTime;
 
@@ -123,7 +123,6 @@ public class movedplayer : MonoBehaviour
     {
         interactuable.OnSelect();
     }
-        
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
