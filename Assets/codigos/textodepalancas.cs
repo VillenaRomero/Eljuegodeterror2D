@@ -4,10 +4,25 @@ using UnityEngine.UI;
 public class textodepalancas : MonoBehaviour
 {
     public Text textoPalancas;
-    public GameManagernivel1 gameManager;
+    private GameManagernivel1 gameManager;
+    private int totalPalancas = 4;
+
+    void Start()
+    {
+        if (gameManager == null)
+            gameManager = FindObjectOfType<GameManagernivel1>();
+    }
 
     void Update()
     {
-        textoPalancas.text = "Palancas bajadas: " + gameManager.palancaActual;
+        if (textoPalancas != null && gameManager != null)
+        {
+            textoPalancas.text = "Palancas bajadas: " + gameManager.palancaActual + " / " + totalPalancas;
+
+            if (gameManager.palancaActual >= totalPalancas)
+            {
+                textoPalancas.text += "\n¡Puerta abierta!";
+            }
+        }
     }
 }

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 public class movedplayer : MonoBehaviour
 {
     public int life = 10;
@@ -16,13 +15,20 @@ public class movedplayer : MonoBehaviour
     public Animator anin;
     private GameManagernivel1 gameManager;
     private Nivelesdeboton nivelesdeboton;
+
     public float currentTime;
-    public Text Text;
+
 
     private void Start()
     {
         gameManager = FindObjectOfType<GameManagernivel1>();
         nivelesdeboton = FindObjectOfType<Nivelesdeboton>();
+
+        // Solo cargar si no se ha hecho antes
+        if (PlayerPrefs.HasKey("CurrentTime"))
+        {
+            currentTime = PlayerPrefs.GetFloat("CurrentTime", 0f);
+        }
     }
 
     private void Awake()
@@ -31,6 +37,8 @@ public class movedplayer : MonoBehaviour
     }
     void Update()
     {
+        currentTime += Time.deltaTime;
+
         if (currentSwitch != null && Input.GetKeyDown(KeyCode.E))
         {
             currentSwitch.Toggle();
@@ -96,26 +104,26 @@ public class movedplayer : MonoBehaviour
                 transform.position += Vector3.right * speed * Time.deltaTime;
             }
         }
-        currentTime += Time.deltaTime;
-        TimerUI();
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
 
-
-
         if (collision.gameObject.tag == nametag)
         {
-            gameManager.CambioDeNivelDerrota();
+           gameManager.CambioDeNivelDerrota();
         }
-        if (collision.gameObject.tag == nametag2) {
+
+        if (collision.gameObject.tag == nametag2)
+        {
+            PlayerPrefs.SetFloat("CurrentTime", currentTime);
             gameManager.CambioDeNivelVctoria();
         }
-        if (collision.gameObject.tag == nametag3) {
-           gameManager.CambiodePalanca();
-        }
 
-
+    Iinteractualbe interactuable = collision.gameObject.GetComponent<Iinteractualbe>();
+    if (interactuable != null)
+    {
+        interactuable.OnSelect();
+    }
         
     }
     private void OnTriggerEnter2D(Collider2D other)
@@ -135,12 +143,6 @@ public class movedplayer : MonoBehaviour
         if (other.gameObject.tag == nametag) {
             nivelesdeboton.NiveldeGanar();
         }
-
-        if (other.gameObject.GetComponent<Iinteractualbe>() != null)
-        {
-            print("DEBUGUEABLE");
-            other.gameObject.GetComponent<Palanca>().OnSelect();
-        }
     }
 
    private void OnTriggerExit2D(Collider2D other)
@@ -150,10 +152,4 @@ public class movedplayer : MonoBehaviour
            currentSwitch = null;
        }
    }
-    void TimerUI()
-    {
-        int seconds = Mathf.CeilToInt(currentTime);
-        Text.text = "Tiempo: " + seconds.ToString();
-
-    }
 }

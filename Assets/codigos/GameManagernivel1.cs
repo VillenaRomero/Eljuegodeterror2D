@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,45 +8,60 @@ public class GameManagernivel1 : MonoBehaviour
     public float currentTimetuCreate;
     public string nivel;
     public string nivel2;
-    private bool cambiarNivelDerrota = false;
-    private bool cambiarNivelVictoria = false;
-    private float tiempoActual = 0f;
-    public int palancaActual = 0;
-    public GameObject[] palancas;
+
     public GameObject puerta;
-
-
     public List<Palanca> newPalancas;
 
+    private bool cambiarNivelDerrota = false;
+    private bool cambiarNivelVictoria = false;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public tiempofinalniveles tiempoFinal;
+
+    public int palancaActual = 0; // Contador de palancas activadas
+
     void Start()
     {
-     /*   ActivarSoloUnaPalanca(0);*/
-
-        foreach (var item in newPalancas)
-        {
-            item.gameObject.SetActive(false);
-
-           
-            
-        }
-        
-        newPalancas[0].gameObject.SetActive(true);
-
-    }
-    public void UpdatePalancas()
-    {
+        // Desactiva todas las palancas menos la primera
         for (int i = 0; i < newPalancas.Count; i++)
         {
-            if (newPalancas[i].isEnabled && (i+1)<newPalancas.Count )
+            if (newPalancas[i] != null)
             {
-                
-                newPalancas[i + 1].gameObject.SetActive(true);
-                newPalancas[i].gameObject.SetActive(false);
+                newPalancas[i].gameObject.SetActive(i == 0); // Solo la primera se activa
                 newPalancas[i].isEnabled = false;
             }
-            
+        }
+
+        // ✅ Asegura que la puerta esté desactivada al iniciar
+        if (puerta != null)
+        {
+            puerta.SetActive(false);
+        }
+
+        if (tiempoFinal == null)
+            tiempoFinal = FindObjectOfType<tiempofinalniveles>();
+    }
+
+    public void UpdatePalancas(Palanca palancaActivada)
+    {
+        int index = newPalancas.IndexOf(palancaActivada);
+
+        if (index >= 0)
+        {
+            palancaActivada.gameObject.SetActive(false); // Oculta palanca activada
+            palancaActivada.isEnabled = false;
+            palancaActual++; // Aumenta el contador
+
+            // Activa la siguiente palanca si existe
+            if ((index + 1) < newPalancas.Count && newPalancas[index + 1] != null)
+            {
+                newPalancas[index + 1].gameObject.SetActive(true);
+            }
+
+            // ✅ Si se activaron 4 palancas, abre la puerta
+            if (palancaActual >= 4 && puerta != null)
+            {
+                puerta.SetActive(true);
+            }
         }
     }
 
@@ -54,53 +69,21 @@ public class GameManagernivel1 : MonoBehaviour
     {
         cambiarNivelDerrota = true;
     }
+
     public void CambioDeNivelVctoria()
     {
-        cambiarNivelVictoria = true;
-    }
-
-    public void CambiodePalanca() {
-        if (palancaActual < palancas.Length)
-        {
-            palancas[palancaActual].SetActive(false);
-            palancaActual++;
-            if (palancaActual < palancas.Length)
-            {
-                palancas[palancaActual].SetActive(true);
-            }
-            else
-            {
-                if (puerta != null)
-                {
-                    puerta.SetActive(true);
-                }
-            }
-        }
-
-    }
-    private void ActivarSoloUnaPalanca(int index)
-    {
-        for (int i = 0; i < palancas.Length; i++)
-        {
-            palancas[i].SetActive(i == index);
-        }
-        if (puerta != null) puerta.SetActive(false);
+        if (tiempoFinal != null)
+            tiempoFinal.levelfinished();
+        SceneManager.LoadScene(nivel);
     }
 
     void Update()
     {
-        currentTimetuCreate = currentTimetuCreate + Time.deltaTime;
-        if (currentTimetuCreate >= timeTiCreate)
+        currentTimetuCreate += Time.deltaTime;
+
+        if (currentTimetuCreate >= timeTiCreate || cambiarNivelDerrota)
         {
             SceneManager.LoadScene(nivel2);
-        }
-        if (cambiarNivelDerrota)
-        {
-            SceneManager.LoadScene(nivel2);
-        }
-        if (cambiarNivelVictoria)
-        {
-            SceneManager.LoadScene(nivel);
         }
     }
 }

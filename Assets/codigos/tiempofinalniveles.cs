@@ -1,35 +1,59 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class tiempofinalniveles : MonoBehaviour
 {
     private movedplayer player;
     public Text Uigame;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    void Awake()
+    {
+        if (player == null)
+            player = FindObjectOfType<movedplayer>();
+    }
+
     void Start()
     {
-        player.currentTime = PlayerPrefs.GetInt("CurrentTime",0);
-        UiTimeGAME();
+        if (player != null)
+        {
+            // Carga tiempo guardado y continúa sumando desde ahí
+            player.currentTime = PlayerPrefs.GetFloat("CurrentTime", 0f);
+        }
     }
-    private void Awake()
-    {
 
-    }
-    // Update is called once per frame
     void Update()
     {
-        
+        UiTimeGAME();  // Mostrar el tiempo real cada frame
     }
-    
+
     public void levelfinished()
     {
-        PlayerPrefs.SetInt("CurrentTime", (int)player.currentTime);
-        UiTimeGAME();
-    }
-    public void UiTimeGAME() {
-        Uigame.text = "Time Game : " + player.currentTime;
+        if (player != null)
+        {
+            Debug.Log("Tiempo actual antes de guardar: " + player.currentTime); // DEBUG
+            float tiempoPrevio = PlayerPrefs.GetFloat("CurrentTime", 0f);
+            float tiempoActual = player.currentTime;
+            float tiempoTotal = tiempoPrevio + tiempoActual;
 
+            PlayerPrefs.SetFloat("CurrentTime", tiempoTotal);
+            PlayerPrefs.Save(); // ⬅ IMPORTANTE
+            Debug.Log("Tiempo total guardado en PlayerPrefs: " + tiempoTotal); // DEBUG
+        }
+        else
+        {
+            Debug.LogWarning("player es null al intentar guardar tiempo");
+        }
     }
+
+    public void UiTimeGAME()
+    {
+        if (player != null && Uigame != null)
+        {
+            int segundos = Mathf.FloorToInt(player.currentTime);
+            Uigame.text = "Time Game: " + segundos + " segundos";
+        }
+    }
+
     private void OnApplicationQuit()
     {
         PlayerPrefs.Save();

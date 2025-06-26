@@ -2,5 +2,5 @@ using UnityEngine;
 
 public class BaseObject : MonoBehaviour
 {
-    string ObjectName;
+    protected string ObjectName;
 }

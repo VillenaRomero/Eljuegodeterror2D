@@ -564,7 +564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6967a355727dc38489fe5c6d39fd9940, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 10
+  life: 20
   speed: 20
   dash: 40
   nametag: puerta
@@ -572,6 +572,7 @@ MonoBehaviour:
   nametag3: 
   nametag4: enemigo
   anin: {fileID: 95599804}
+  currentTime: 0
 --- !u!50 &95599800
 Rigidbody2D:
   serializedVersion: 5
@@ -5222,7 +5223,7 @@ GameObject:
   - component: {fileID: 1347881882}
   m_Layer: 0
   m_Name: puerta de salida_0
-  m_TagString: Untagged
+  m_TagString: puerta
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
