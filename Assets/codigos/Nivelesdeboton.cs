@@ -112,7 +112,7 @@ public class Nivelesdeboton : MonoBehaviour
             puerta.SetActive(true);
         }
     }
-    public void BotonActivado(botonactivate botonyaactivado) { 
-    
-    }
+    /*public void BotonActivado(botonactivate botonyaactivado) { 
+     int botonyaactivado = newbutton
+    }*/
 }

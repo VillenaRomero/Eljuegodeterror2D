@@ -6,7 +6,6 @@ public class cajafuerte : MonoBehaviour
     public string nametag;
     public GameObject codePanel, openedSafe;
     public static bool isSafeOpened = false;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         
