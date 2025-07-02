@@ -3,25 +3,15 @@ using UnityEngine.UI;
 
 public class TiempoDerrotaUI : MonoBehaviour
 {
-    public Text tiempoText;
+    public Text textoTiempo;
 
     void Start()
     {
-        float tiempoGuardado = PlayerPrefs.GetFloat("CurrentTime", -1f);
-
-        if (tiempoGuardado >= 0f)
+        if (TiempoTotalJuego.instancia != null)
         {
-            int segundos = Mathf.FloorToInt(tiempoGuardado);
-            tiempoText.text = "Sobreviviste: " + segundos + " segundos";
-            Debug.Log("Tiempo mostrado en derrota: " + segundos); // DEBUG
+            float tiempo = TiempoTotalJuego.instancia.tiempoJugado;
+            int segundos = Mathf.FloorToInt(tiempo);
+            textoTiempo.text = "Sobreviviste: " + segundos + " segundos";
         }
-        else
-        {
-            tiempoText.text = "No se encontró tiempo jugado.";
-            Debug.LogWarning("No se encontró 'CurrentTime' en PlayerPrefs");
-        }
-
-        // Opcional: limpiar para próximo intento
-        PlayerPrefs.DeleteKey("CurrentTime");
     }
 }

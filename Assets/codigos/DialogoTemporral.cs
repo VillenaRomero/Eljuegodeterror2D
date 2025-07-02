@@ -5,7 +5,7 @@ public class DialogoTemporral : MonoBehaviour
 {
     public Text dialogoUI;
     public string mensaje;
-    public float duracion = 3f;
+    public float duracion;
     private float tiempoRestante = 0f;
 
     void Update()

@@ -9,8 +9,8 @@ public class LibroController : MonoBehaviour
     public Button btnSiguiente;
     public Button btnAnterior;
 
-    public Sprite[] hojas; // 6 sprites, 2 por página
-    private int paginaActual = 0; // 0 = primera página
+    public Sprite[] hojas;
+    private int paginaActual = 0; 
 
     private void Start()
     {

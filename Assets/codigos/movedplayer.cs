@@ -16,18 +16,10 @@ public class movedplayer : MonoBehaviour
     private GameManagernivel1 gameManager;
     private Nivelesdeboton nivelesdeboton; 
 
-    public float currentTime;
-
-
     private void Start()
     {
         gameManager = FindFirstObjectByType<GameManagernivel1>();
         nivelesdeboton = FindFirstObjectByType<Nivelesdeboton>();
-
-        if (PlayerPrefs.HasKey("CurrentTime"))
-        {
-            currentTime = PlayerPrefs.GetFloat("CurrentTime", 0f);
-        }
     }
 
     private void Awake()
@@ -36,7 +28,6 @@ public class movedplayer : MonoBehaviour
     }
     void Update()
     {
-        currentTime += Time.deltaTime;
 
         if (currentSwitch != null && Input.GetKeyDown(KeyCode.E))
         {
@@ -114,7 +105,6 @@ public class movedplayer : MonoBehaviour
 
         if (collision.gameObject.tag == nametag2)
         {
-            PlayerPrefs.SetFloat("CurrentTime", currentTime);
             gameManager.CambioDeNivelVctoria();
         }
 

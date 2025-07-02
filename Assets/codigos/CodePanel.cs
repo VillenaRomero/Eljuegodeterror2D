@@ -11,7 +11,6 @@ public class CodePanel : MonoBehaviour
     {
         
     }
-
     void Update()
     {
         codeText.text = codeTextValue;

@@ -40,7 +40,6 @@ public class Nivelesdeboton : MonoBehaviour
 
     void Update()
     {
-        // Temporizador para siguiente botón
         if (!esperandoPresionar && botonActual < botones.Length)
         {
             cronometro += Time.deltaTime;
@@ -59,7 +58,6 @@ public class Nivelesdeboton : MonoBehaviour
             }
         }
 
-        // Actualizar vida en pantalla
         if (jugador != null && textoVida != null)
         {
             textoVida.text = "Vida: " + jugador.life;

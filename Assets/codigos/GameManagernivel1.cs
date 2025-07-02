@@ -14,8 +14,6 @@ public class GameManagernivel1 : MonoBehaviour
 
     private bool cambiarNivelDerrota = false;
 
-    public tiempofinalniveles tiempoFinal;
-
     public int palancaActual = 0;
 
     void Start()
@@ -35,8 +33,6 @@ public class GameManagernivel1 : MonoBehaviour
             puerta.SetActive(false);
         }
 
-        if (tiempoFinal == null)
-            tiempoFinal = FindFirstObjectByType<tiempofinalniveles>();
     }
 
     public void UpdatePalancas(Palanca palancaActivada)
@@ -47,7 +43,7 @@ public class GameManagernivel1 : MonoBehaviour
         {
             palancaActivada.gameObject.SetActive(false);
             palancaActivada.isEnabled = false;
-            palancaActual++; 
+            palancaActual++;
 
 
             if ((index + 1) < newPalancas.Count && newPalancas[index + 1] != null)
@@ -69,11 +65,8 @@ public class GameManagernivel1 : MonoBehaviour
 
     public void CambioDeNivelVctoria()
     {
-        if (tiempoFinal != null)
-            tiempoFinal.levelfinished();
-        SceneManager.LoadScene(nivel);
+        SceneManager.LoadScene(nivel); 
     }
-
     void Update()
     {
         currentTimetuCreate += Time.deltaTime;

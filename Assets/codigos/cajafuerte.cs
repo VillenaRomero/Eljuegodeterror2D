@@ -16,7 +16,6 @@ public class cajafuerte : MonoBehaviour
         codePanel.SetActive(false);
         openedSafe.SetActive(false);
     }
-    // Update is called once per frame
     void Update()
     {
         if (isSafeOpened)
@@ -32,7 +31,6 @@ public class cajafuerte : MonoBehaviour
         {
             codePanel.SetActive(true);
         }
-
     }
     private void OnTriggerExit2D(Collider2D other)
     {

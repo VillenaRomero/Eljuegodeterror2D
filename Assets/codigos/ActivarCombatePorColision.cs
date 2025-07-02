@@ -6,7 +6,6 @@ public class ActivarCombatePorColision : MonoBehaviour
 
     void Awake()
     {
-        // Asegura que la UI esté desactivada desde el principio
         if (mesaCombateUI != null)
             mesaCombateUI.SetActive(false);
     }

@@ -14,7 +14,7 @@ public class botonactivate : MonoBehaviour
             if (manager != null)
             {
                 manager.BotonPresionado();
-                gameObject.SetActive(false); // Desaparece tras ser activado
+                gameObject.SetActive(false);
             }
         }
     }

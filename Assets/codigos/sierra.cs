@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class sierra : herenciadevelocidad
+public class sierra : MonoBehaviour
 {
+    public int speedx;
+    public int speedy;
     private Rigidbody2D rigibody2D_;
     private Transform comTransform;
     public float speed = 4;

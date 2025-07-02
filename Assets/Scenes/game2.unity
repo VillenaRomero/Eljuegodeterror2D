@@ -1131,7 +1131,6 @@ MonoBehaviour:
   nametag3: Palanca
   nametag4: "contrase\xF1a"
   anin: {fileID: 123974259}
-  currentTime: 0
 --- !u!50 &123974261
 Rigidbody2D:
   serializedVersion: 5
@@ -2613,7 +2612,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.1
+  m_Intensity: 0.02
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 00000000
@@ -4194,8 +4193,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogoUI: {fileID: 1428378654}
-  mensaje: "Inicio     Motivaci\xF3n  Invento  Justificaci\xF3n  Comunicaci\xF3n 
-    Mantenimiento  Consecuencia  Final (Cual es el Mantenimiento)"
+  mensaje: "1)Inicio    2) Motivaci\xF3n  3)Invento  4)Justificaci\xF3n  5)Comunicaci\xF3n 
+    6)Mantenimiento  7)Consecuencia  8)Final (Cual es el Mantenimiento)"
 --- !u!212 &1092835861
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4428,7 +4427,6 @@ MonoBehaviour:
   nivel2: derrota
   puerta: {fileID: 0}
   newPalancas: []
-  tiempoFinal: {fileID: 0}
   palancaActual: 0
 --- !u!4 &1107990744
 Transform:
@@ -4498,6 +4496,135 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.6202855, y: -8.716405, z: -0.12138856}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1145725760
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1145725762}
+  - component: {fileID: 1145725761}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1145725761
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145725760}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 10ee8e7311915db41b5b8ca47647c7e1, type: 3}
+  m_Resource: {fileID: 8300000, guid: 10ee8e7311915db41b5b8ca47647c7e1, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.2
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1145725762
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145725760}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.2481337, y: 3.2043068, z: -0.086846195}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4917,12 +5044,15 @@ MonoBehaviour:
   dialogoUI: {fileID: 1501351362}
   mensaje: "Las palabras ordenadas estan en la otra grabadora, para comenzar se debe
     elegir uno de los 4 puntos, norte,sur ,este y oeste, las otras palabras ordenadas
-    debes comenzar de arriba y abajo o derecha y izquierda, la palabra que se pide
-    debes seguir a que linea recta sigue, y ahi conseguiras la primera parte de la
-    contrase\xF1a, el interruptor te mostrara los otros numeros, debes empezar donde
-    esta el segundo numero y que direccion apunta en linea recta, la telara\xF1a
-    no apunta de derecha y izquierda, apunta al frente. (La palabra que te pide esta
-    en la otra grabadora)"
+    debes comenzar de arriba y abajo o derecha y izquierda, la palabra que direccion
+    debes seguir, y ahi conseguiras la primera parte de la contrase\xF1a, el interruptor
+    te mostrara los otros numeros, debes empezar donde esta el segundo numero y que
+    direccion apunta en linea recta, la telara\xF1a no apunta de derecha y izquierda,
+    apunta al frente. (La palabra que te pide esta en la otra grabadora).Ademas hay
+    un cuaderno que te dira que direccion hablo pero el problemas es que hay varias
+    paginas de distintas combinaciones, pero en las dos cadras de cada pagina te
+    dara la duda si la cara una te dice que es la luz una o la luz dos,igual que
+    la segunda cara"
   duracion: 30
 --- !u!61 &1301801761
 BoxCollider2D:
@@ -6192,7 +6322,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 895976876}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -6203,7 +6333,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 30
   m_TargetDisplay: 0
 --- !u!224 &1703621152
 RectTransform:
@@ -7158,3 +7288,4 @@ SceneRoots:
   - {fileID: 1125297036}
   - {fileID: 394501530}
   - {fileID: 1107990744}
+  - {fileID: 1145725762}
