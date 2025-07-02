@@ -56,7 +56,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/habitacion5.unity
     guid: 601565cc7e22ec84aa30e2f930b63381
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects:

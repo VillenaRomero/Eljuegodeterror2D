@@ -7,8 +7,5 @@ public class InteractuableOvbject : BaseObject ,Iinteractualbe
 
     public virtual void OnSelect()
     {
-        // Esto se sobrescribe en Palanca
     }
-
-
 }

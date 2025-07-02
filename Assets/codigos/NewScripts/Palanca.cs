@@ -21,14 +21,12 @@ public class Palanca : InteractuableOvbject , Iinteractualbe
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (isEnabled && gm != null && gm.newPalancas.Count > 3 &&
-            gm.newPalancas[3] == this && collision.gameObject.CompareTag("player"))
+        if (isEnabled && gm != null && gm.newPalancas.Count > 3 && gm.newPalancas[3] == this && collision.gameObject.tag == "player" )
         {
             if (gm.puerta != null)
             {
                 gm.puerta.SetActive(true);
             }
-
 
             gameObject.SetActive(false);
             isEnabled = false;

@@ -1,9 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using NUnit.Framework;
+using System.Collections.Generic;
 public class Nivelesdeboton : MonoBehaviour
 {
-    public GameObject[] botones;         
+    public GameObject[] botones;
+    public List<botonactivate> newbutton;
     public GameObject puerta;            
     public float tiempoPorBoton = 10f;
     public float timeTiCreate = 100f;
@@ -108,5 +111,8 @@ public class Nivelesdeboton : MonoBehaviour
         {
             puerta.SetActive(true);
         }
+    }
+    public void BotonActivado(botonactivate botonyaactivado) { 
+    
     }
 }
