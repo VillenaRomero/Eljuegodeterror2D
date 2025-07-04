@@ -1887,7 +1887,6 @@ MonoBehaviour:
   newPalancas:
   - {fileID: 105240823}
   - {fileID: 1053364257}
-  - {fileID: 1053364257}
   palancaActual: 0
 --- !u!4 &1616705362
 Transform:

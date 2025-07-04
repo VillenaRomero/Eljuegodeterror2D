@@ -1,14 +1,15 @@
 ﻿using UnityEngine;
 
-public class Palanca : InteractuableOvbject , Iinteractualbe
+public class Palanca : InteractuableObject , Iinteractuable
 {
-    private GameManagernivel1 gm;
+
+
     public bool isEnabled = false;
     private bool yaActivada = false;
 
     private void Start()
     {
-        gm = FindFirstObjectByType<GameManagernivel1>();
+
     }
 
     public override void OnSelect()
@@ -18,9 +19,9 @@ public class Palanca : InteractuableOvbject , Iinteractualbe
             yaActivada = true;
             isEnabled = true;
 
-            if (gm != null)
+            if (GameManagernivel1.Instance != null)
             {
-                gm.UpdatePalancas(this);
+                GameManagernivel1.Instance.UpdatePalancas(this);
             }
         }
     }

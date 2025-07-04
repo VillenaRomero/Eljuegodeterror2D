@@ -3,50 +3,48 @@ using System.Collections.Generic;
 using UnityEngine;
 public class movedplayer : MonoBehaviour
 {
+    private Rigidbody2D rb;
+    public Animator anin;
+
     public int life = 10;
     public int speed = 10;
     public int dash = 30;
-    private Rigidbody2D _compRigidbody2D;
-    public string nametag;
-    public string nametag2;
-    public string nametag3;
-    public string nametag4;
-    private SwitchTrigger currentSwitch;
-    public Animator anin;
-    private GameManagernivel1 gameManager;
-    private Nivelesdeboton nivelesdeboton; 
 
-    private void Start()
-    {
-        gameManager = FindFirstObjectByType<GameManagernivel1>();
-        nivelesdeboton = FindFirstObjectByType<Nivelesdeboton>();
-    }
+ 
+  
 
     private void Awake()
     {
-        _compRigidbody2D = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
+    }
+    private void Start()
+    {
+       
     }
     void Update()
     {
-
-        if (currentSwitch != null && Input.GetKeyDown(KeyCode.E))
+        Movement();
+    }
+    public void Movement()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            currentSwitch.Toggle();
-        }
-        if (Input.GetKeyDown(KeyCode.LeftShift)) {
             anin.SetBool("Run", true);
         }
-        if (Input.GetKeyUp(KeyCode.LeftShift)) {
-            anin.SetBool("Run",false);
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            anin.SetBool("Run", false);
         }
-        if (Input.GetKey(KeyCode.W)) {
+        if (Input.GetKey(KeyCode.W))
+        {
 
             if (anin.GetBool("Run"))
             {
                 anin.Play("Correr hacia arriba");
                 transform.position += Vector3.up * dash * Time.deltaTime;
             }
-            else {
+            else
+            {
                 anin.Play("Caminar hacia arriba");
                 transform.position += Vector3.up * speed * Time.deltaTime;
             }
@@ -98,46 +96,19 @@ public class movedplayer : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
 
-        if (collision.gameObject.tag == nametag)
-        {
-           gameManager.CambioDeNivelDerrota();
-        }
-
-        if (collision.gameObject.tag == nametag2)
-        {
-            gameManager.CambioDeNivelVctoria();
-        }
-
-    Iinteractualbe interactuable = collision.gameObject.GetComponent<Iinteractualbe>();
-    if (interactuable != null)
-    {
-        interactuable.OnSelect();
-    }
+         
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag =="Interruptor")
+        Iinteractuable interactuable = other.gameObject.GetComponent<Iinteractuable>();
+        if (interactuable != null)
         {
-            currentSwitch = other.GetComponent<SwitchTrigger>();
-        }
-        if (other.gameObject.tag == nametag4)
-        {
-            life--;
-            if (life <= 0)
-            {
-                nivelesdeboton.Niveldederrota();
-            }
-        }
-        if (other.gameObject.tag == nametag) {
-            nivelesdeboton.NiveldeGanar();
+            interactuable.OnSelect();
         }
     }
 
    private void OnTriggerExit2D(Collider2D other)
    {
-       if (other.gameObject.tag =="Interruptor")
-       {
-           currentSwitch = null;
-       }
+      
    }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public interface Iinteractualbe
+public interface Iinteractuable //->recuerda que debe ser collider trigger
 {
     public void OnSelect();
 }

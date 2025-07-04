@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class GameManagernivel1 : MonoBehaviour
 {
+    public static GameManagernivel1 Instance;
+
+
     public float timeTiCreate;
     public float currentTimetuCreate;
     public string nivel;
@@ -16,6 +19,16 @@ public class GameManagernivel1 : MonoBehaviour
     private bool cambiarNivelDerrota = false;
 
     public int palancaActual = 0;
+    
+    
+    void Awake()
+    {
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+        
+    }
 
     void Start()
     {

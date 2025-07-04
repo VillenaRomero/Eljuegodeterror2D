@@ -4965,14 +4965,8 @@ MonoBehaviour:
   btnSiguiente: {fileID: 1704966952}
   btnAnterior: {fileID: 1212583804}
   hojas:
-  - {fileID: -3583685461446265699, guid: a616849f8875e3146be37d0a69bb8742, type: 3}
-  - {fileID: 6424949784546716700, guid: 41d8f8f2e1db71f49a40b2560445a4ab, type: 3}
-  - {fileID: -8036068331085223538, guid: d0be1539e94cff6468c9f8a789c1f719, type: 3}
-  - {fileID: -9003545465634619680, guid: 8ff31204c960a9e43b5458034ce776f7, type: 3}
-  - {fileID: -6788843221900602924, guid: 57cb42a9fc5bafb4e948da29b7b73fd2, type: 3}
-  - {fileID: 4094591727831692052, guid: 336955d28d3b3cc48ba235835ab26743, type: 3}
-  - {fileID: -5949431291268961286, guid: 59a610d4b75eb6043ae7ca8f0c5c119c, type: 3}
-  - {fileID: -1992600969209833365, guid: 7941d2888468e7944844783343a310e4, type: 3}
+  - {fileID: 5221338467097516137, guid: 7fd83ad710dc4d948a6683cf4b4b7ffd, type: 3}
+  - {fileID: -2241464048335948056, guid: d7ee26da928b15f4c8f0d6fabf24e6da, type: 3}
 --- !u!4 &1883672703
 Transform:
   m_ObjectHideFlags: 0
@@ -5337,8 +5331,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cda6523c75ad90438700958c2d73901, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nametag: 
-  libro: {fileID: 0}
+  nametag: player
+  libro: {fileID: 1883672702}
 --- !u!61 &2074662666
 BoxCollider2D:
   m_ObjectHideFlags: 0
