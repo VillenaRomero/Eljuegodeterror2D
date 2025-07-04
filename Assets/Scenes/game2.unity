@@ -3471,6 +3471,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   codeText: {fileID: 1540176108}
+  correctCode: 2745
+  cajafuerte: {fileID: 746031021}
 --- !u!1 &895976874
 GameObject:
   m_ObjectHideFlags: 0

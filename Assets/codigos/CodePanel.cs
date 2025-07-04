@@ -6,22 +6,33 @@ using UnityEngine.UI;
 public class CodePanel : MonoBehaviour
 {
     public Text codeText;
-    string codeTextValue = "";
-    void Start()
-    {
-        
-    }
+    public string correctCode = "1234";
+    public cajafuerte cajafuerte;
+    private string codeTextValue = "";
+
     void Update()
     {
         codeText.text = codeTextValue;
-        if (codeTextValue == "2745") {
-            cajafuerte.isSafeOpened = true;
-        }
-        if (codeTextValue.Length >= 4) {
+
+        if (codeTextValue.Length == 4)
+        {
+            if (codeTextValue == correctCode)
+            {
+                cajafuerte.isSafeOpened = true;
+            }
+            else
+            {
+            }
+
             codeTextValue = "";
         }
     }
-    public void AddDigit(string digit) {
-        codeTextValue += digit;
+
+    public void AddDigit(string digit)
+    {
+        if (codeTextValue.Length < 4)
+        {
+            codeTextValue += digit;
+        }
     }
 }

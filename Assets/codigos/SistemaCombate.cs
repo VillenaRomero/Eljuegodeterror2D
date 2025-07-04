@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SistemaCombate : MonoBehaviour
 {
+    public int cantidadCartas = 12;
+
     public GameObject cartaPrefab;
     public Transform zonaJugador, zonaEnemigo;
     public Sprite[] imagenesCartas;
@@ -15,10 +17,10 @@ public class SistemaCombate : MonoBehaviour
     public Text vidaJugadorText;
     public Text vidaEnemigoText;
 
-    private cartas[] cartasJugador = new cartas[12];
-    private cartas[] cartasEnemigo = new cartas[12];
-    private GameObject[] cartasObjJugador = new GameObject[12];
-    private GameObject[] cartasObjEnemigo = new GameObject[12];
+    private cartas[] cartasJugador;
+    private cartas[] cartasEnemigo;
+    private GameObject[] cartasObjJugador;
+    private GameObject[] cartasObjEnemigo;
 
     private int vidaJugador = 5;
     private int vidaEnemigo = 5;
@@ -38,6 +40,11 @@ public class SistemaCombate : MonoBehaviour
 
     void IniciarJuego()
     {
+        cartasJugador = new cartas[cantidadCartas];
+        cartasEnemigo = new cartas[cantidadCartas];
+        cartasObjJugador = new GameObject[cantidadCartas];
+        cartasObjEnemigo = new GameObject[cantidadCartas];
+
         cartas[] baraja = CrearBaraja();
         RepartirCartas(baraja);
         MostrarCartasOcultas();
@@ -71,16 +78,16 @@ public class SistemaCombate : MonoBehaviour
 
     void RepartirCartas(cartas[] baraja)
     {
-        for (int i = 0; i < 12; i++)
+        for (int i = 0; i < cantidadCartas; i++)
         {
             cartasJugador[i] = baraja[i];
-            cartasEnemigo[i] = baraja[i + 12];
+            cartasEnemigo[i] = baraja[i + cantidadCartas];
         }
     }
 
     void MostrarCartasOcultas()
     {
-        for (int i = 0; i < 12; i++)
+        for (int i = 0; i < cantidadCartas; i++)
         {
             cartasObjJugador[i] = CrearCarta(i, zonaJugador, true);
             cartasObjEnemigo[i] = CrearCarta(i, zonaEnemigo, false);
@@ -132,7 +139,7 @@ public class SistemaCombate : MonoBehaviour
 
     int BuscarSiguienteCartaEnemigo()
     {
-        for (int i = 0; i < 12; i++)
+        for (int i = 0; i < cantidadCartas; i++)
         {
             if (cartasObjEnemigo[i].GetComponent<Image>().sprite == reversoCarta)
                 return i;
@@ -204,15 +211,11 @@ public class SistemaCombate : MonoBehaviour
         {
             SceneManager.LoadScene("Fin");
         }
-        else if (rondasCompletas >= 12)
+        else if (rondasCompletas >= cantidadCartas)
         {
             if (vidaJugador > vidaEnemigo)
             {
                 SceneManager.LoadScene("Fin");
-            }
-            else if (vidaJugador < vidaEnemigo)
-            {
-                SceneManager.LoadScene("derrota");
             }
             else
             {

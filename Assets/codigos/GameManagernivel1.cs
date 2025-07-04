@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -23,7 +24,15 @@ public class GameManagernivel1 : MonoBehaviour
         {
             if (newPalancas[i] != null)
             {
-                newPalancas[i].gameObject.SetActive(i == 0);
+                if (i == 0)
+                {
+                    newPalancas[i].gameObject.SetActive(true);
+                }
+                else
+                {
+                    newPalancas[i].gameObject.SetActive(false);
+                }
+
                 newPalancas[i].isEnabled = false;
             }
         }
@@ -51,7 +60,7 @@ public class GameManagernivel1 : MonoBehaviour
                 newPalancas[index + 1].gameObject.SetActive(true);
             }
 
-            if (palancaActual >= 4 && puerta != null)
+            if (palancaActual >= newPalancas.Count && puerta != null)
             {
                 puerta.SetActive(true);
             }

@@ -4,6 +4,7 @@ public class Palanca : InteractuableOvbject , Iinteractualbe
 {
     private GameManagernivel1 gm;
     public bool isEnabled = false;
+    private bool yaActivada = false;
 
     private void Start()
     {
@@ -12,24 +13,23 @@ public class Palanca : InteractuableOvbject , Iinteractualbe
 
     public override void OnSelect()
     {
-        isEnabled = true;
-        if (gm != null)
+        if (!yaActivada)
         {
-            gm.UpdatePalancas(this);
+            yaActivada = true;
+            isEnabled = true;
+
+            if (gm != null)
+            {
+                gm.UpdatePalancas(this);
+            }
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (isEnabled && gm != null && gm.newPalancas.Count > 3 && gm.newPalancas[3] == this && collision.gameObject.tag == "player" )
+        if (!yaActivada && collision.CompareTag("Player") && gameObject.activeSelf)
         {
-            if (gm.puerta != null)
-            {
-                gm.puerta.SetActive(true);
-            }
-
-            gameObject.SetActive(false);
-            isEnabled = false;
+            OnSelect();
         }
     }
 }
