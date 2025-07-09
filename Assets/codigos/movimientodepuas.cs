@@ -29,5 +29,13 @@ public class movimientodepuas : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (collision.CompareTag("player"))
+        {
+            movedplayer jugador = collision.GetComponent<movedplayer>();
+            if (jugador != null)
+            {
+                jugador.RecibirDaño(1);
+            }
+        }
     }
 }

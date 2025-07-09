@@ -6,19 +6,23 @@ public class textodepalancas : MonoBehaviour
 {
     public Text textoPalancas;
     private GameManagernivel1 gameManager;
-    private int totalPalancas = 4;
+    private int totalPalancas;
 
     void Start()
     {
-        if (gameManager == null)
-            gameManager = FindFirstObjectByType<GameManagernivel1>();
+        gameManager = FindFirstObjectByType<GameManagernivel1>();
+
+        if (gameManager != null && gameManager.newPalancas != null)
+        {
+            totalPalancas = gameManager.newPalancas.Count;
+        }
     }
 
     void Update()
     {
         if (textoPalancas != null && gameManager != null)
         {
-            textoPalancas.text = "Palancas bajadas: " + gameManager.palancaActual + " / " + totalPalancas;
+            textoPalancas.text = "Palancas: " + gameManager.palancaActual + " / " + totalPalancas;
 
             if (gameManager.palancaActual >= totalPalancas)
             {

@@ -20,6 +20,14 @@ public class sierradederechayizquierda : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.CompareTag("player"))
+        {
+            movedplayer jugador = collision.GetComponent<movedplayer>();
+            if (jugador != null)
+            {
+                jugador.RecibirDaño(1);
+            }
+        }
         if (collision.gameObject.tag == nametag)
         {
             Destroy(this.gameObject);

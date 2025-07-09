@@ -10,9 +10,6 @@ public class movedplayer : MonoBehaviour
     public int speed = 10;
     public int dash = 30;
 
- 
-  
-
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -93,10 +90,18 @@ public class movedplayer : MonoBehaviour
             }
         }
     }
-    void OnCollisionEnter2D(Collision2D collision)
+    public void RecibirDaño(int cantidad)
     {
-
-         
+        life -= cantidad;
+        if (life <= 0)
+        {
+            life = 0;
+            Nivelesdeboton gm = FindFirstObjectByType<Nivelesdeboton>();
+            if (gm != null)
+            {
+                gm.Niveldederrota();
+            }
+        }
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -106,9 +111,4 @@ public class movedplayer : MonoBehaviour
             interactuable.OnSelect();
         }
     }
-
-   private void OnTriggerExit2D(Collider2D other)
-   {
-      
-   }
 }

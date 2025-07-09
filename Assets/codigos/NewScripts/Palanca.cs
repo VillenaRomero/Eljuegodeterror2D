@@ -2,15 +2,8 @@
 
 public class Palanca : InteractuableObject , Iinteractuable
 {
-
-
     public bool isEnabled = false;
     private bool yaActivada = false;
-
-    private void Start()
-    {
-
-    }
 
     public override void OnSelect()
     {
@@ -32,5 +25,11 @@ public class Palanca : InteractuableObject , Iinteractuable
         {
             OnSelect();
         }
+    }
+
+    public void ResetearPalanca()
+    {
+        isEnabled = false;
+        yaActivada = false;
     }
 }

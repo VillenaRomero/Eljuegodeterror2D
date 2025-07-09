@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class sierra : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class sierra : MonoBehaviour
     public string nametag = "pared de arriba";
     public string nametag1 = "pared de abajo";
     public string nametag2 = "sierra";
+    public string nametag3;
+    public string levelfailure;
+
 
     void Start()
     {
@@ -24,9 +28,13 @@ public class sierra : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == nametag || collision.gameObject.tag == nametag1 ||collision.gameObject.tag ==nametag2)
+        if (collision.gameObject.tag == nametag || collision.gameObject.tag == nametag1 || collision.gameObject.tag == nametag2)
         {
-            speedy *= -1; 
+            speedy *= -1;
+        }
+
+        else if (collision.gameObject.tag == nametag3) {
+            SceneManager.LoadScene(levelfailure);
         }
     }
 }

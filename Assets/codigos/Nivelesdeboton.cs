@@ -6,25 +6,22 @@ using System.Collections.Generic;
 public class Nivelesdeboton : MonoBehaviour
 {
     public GameObject[] botones;
-    public List<botonactivate> newbutton;
-    public GameObject puerta;            
+    public GameObject puerta;
     public float tiempoPorBoton = 10f;
     public float timeTiCreate = 100f;
     public float currentTimetuCreate;
 
-    public string nivel;     
-    public string nivel2;    
+    public string nivel; 
+    public string nivel2; 
 
-    public Text textoVida;           
-    public Text textoTemporizador;   
+    public Text textoVida;
+    public Text textoTemporizador;
 
-    private movedplayer jugador;     
-
+    private movedplayer jugador;
     private float cronometro = 0f;
     private int botonActual = 0;
     private bool esperandoPresionar = false;
     private bool Siguientenivelperder = false;
-    private bool Siguientenivelganar = false;
 
     void Start()
     {
@@ -51,7 +48,7 @@ public class Nivelesdeboton : MonoBehaviour
             {
                 float tiempoRestante = tiempoPorBoton - cronometro;
                 if (tiempoRestante < 0) tiempoRestante = 0;
-                textoTemporizador.text = "Siguiente botón en: " + Mathf.Ceil(tiempoRestante) + "s";
+                textoTemporizador.text = "Siguiente botón en: " + Mathf.Ceil(tiempoRestante);
             }
 
             if (cronometro >= tiempoPorBoton)
@@ -76,21 +73,11 @@ public class Nivelesdeboton : MonoBehaviour
         {
             SceneManager.LoadScene(nivel);
         }
-
-        if (Siguientenivelganar)
-        {
-            SceneManager.LoadScene(nivel2);
-        }
     }
 
     public void Niveldederrota()
     {
         Siguientenivelperder = true;
-    }
-
-    public void NiveldeGanar()
-    {
-        Siguientenivelganar = true;
     }
 
     void ActivarSiguienteBoton()
@@ -101,7 +88,6 @@ public class Nivelesdeboton : MonoBehaviour
             esperandoPresionar = true;
         }
     }
-
     public void BotonPresionado()
     {
         botonActual++;
@@ -112,7 +98,4 @@ public class Nivelesdeboton : MonoBehaviour
             puerta.SetActive(true);
         }
     }
-    /*public void BotonActivado(botonactivate botonyaactivado) { 
-     int botonyaactivado = newbutton
-    }*/
 }
