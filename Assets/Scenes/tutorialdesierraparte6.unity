@@ -1479,6 +1479,7 @@ MonoBehaviour:
   nametag: player
   codePanel: {fileID: 45233292}
   openedSafe: {fileID: 115898439}
+  isSafeOpened: 0
 --- !u!61 &375392147
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6515,6 +6516,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2112700133
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2112700135}
+  - component: {fileID: 2112700134}
+  m_Layer: 0
+  m_Name: temporizador de muerte
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2112700134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112700133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fa0492b7124cf546bb9c207cdc26ce7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nivel2: derrota
+  timeTiCreate: 60
+--- !u!4 &2112700135
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112700133}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -15.684746, y: -1.8394259, z: 5.9388547}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -6537,3 +6584,4 @@ SceneRoots:
   - {fileID: 1180021677}
   - {fileID: 505744953}
   - {fileID: 1468466492}
+  - {fileID: 2112700135}

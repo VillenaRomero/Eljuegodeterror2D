@@ -558,7 +558,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   col: {fileID: 0}
-  NextLevel: 10
+  NextLevel: 24
 --- !u!50 &574707589
 Rigidbody2D:
   serializedVersion: 5
